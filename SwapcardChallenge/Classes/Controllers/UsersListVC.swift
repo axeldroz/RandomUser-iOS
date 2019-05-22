@@ -60,9 +60,18 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
         let viewModel = UserViewModel(model: self.models[indexPath.row])
+        let image = UIImage(named: "ic-add")
+        let addImageView = UIImageView(image: image)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
+        addImageView.addGestureRecognizer(tap)
+        cell.accessoryView = addImageView
         cell.viewModel = viewModel
         cell.backgroundColor = .clear
         return cell as UITableViewCell
+    }
+    
+    @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("taped")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

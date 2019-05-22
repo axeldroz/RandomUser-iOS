@@ -13,7 +13,7 @@ class UIHelper {
     class Color {
         static let whiteColor = UIColor.white
         static let whiteSmokeColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
-        static let pictalioBlueColor = UIColor(red: 69 / 255, green: 137 / 255, blue: 150 / 255, alpha: 1)
+        static let color = UIColor(red: 69 / 255, green: 137 / 255, blue: 150 / 255, alpha: 1)
     }
     
     enum DeviceTypeHeight : Int{

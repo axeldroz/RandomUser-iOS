@@ -40,6 +40,10 @@ class UsersListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
 
     // convert string to url
     func getURLFromPath(_ path: String) -> URL {

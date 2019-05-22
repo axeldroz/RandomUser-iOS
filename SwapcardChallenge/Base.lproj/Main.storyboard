@@ -51,7 +51,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="axel1.drozdzynski@epitech.eu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpD-L1-Ve8">
-                                                    <rect key="frame" x="100" y="45" width="294" height="14.5"/>
+                                                    <rect key="frame" x="100" y="45" width="170" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -68,8 +68,6 @@
                                                 <constraint firstItem="gpD-L1-Ve8" firstAttribute="leading" secondItem="qoH-i4-7Lb" secondAttribute="trailing" constant="20" id="Bda-zk-o12"/>
                                                 <constraint firstItem="qoH-i4-7Lb" firstAttribute="leading" secondItem="15k-J4-Q7j" secondAttribute="leading" constant="20" id="NKa-UC-s2r"/>
                                                 <constraint firstItem="qoH-i4-7Lb" firstAttribute="top" secondItem="15k-J4-Q7j" secondAttribute="top" constant="8" id="V8Q-kZ-QIE"/>
-                                                <constraint firstAttribute="trailing" secondItem="gpD-L1-Ve8" secondAttribute="trailing" constant="20" id="VON-F2-A3t"/>
-                                                <constraint firstItem="gpD-L1-Ve8" firstAttribute="trailing" secondItem="15k-J4-Q7j" secondAttribute="trailing" constant="-20" id="gIl-cb-2x7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BGI-VH-CRQ" secondAttribute="trailing" constant="20" id="kKl-AH-gdy"/>
                                                 <constraint firstItem="gpD-L1-Ve8" firstAttribute="top" secondItem="BGI-VH-CRQ" secondAttribute="bottom" constant="8" id="pb2-b5-Kga"/>
                                                 <constraint firstItem="BGI-VH-CRQ" firstAttribute="leading" secondItem="qoH-i4-7Lb" secondAttribute="trailing" constant="20" id="zti-Fq-rnJ"/>
@@ -99,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZR-Zf-8jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="-160"/>
+            <point key="canvasLocation" x="2311.594202898551" y="-160.04464285714286"/>
         </scene>
     </scenes>
 </document>

@@ -8,9 +8,14 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 let serverUrl = "https://randomuser.me"
 let apiService = ApiService()
+
+var defRealm:Realm = {
+    return try! Realm()
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
+        let config = Realm.Configuration(
+            schemaVersion: 12,
+            deleteRealmIfMigrationNeeded: true
+        )
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
         return true
     }
 

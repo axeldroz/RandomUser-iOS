@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         print("viewDidLoad")
         tabBar.barTintColor = UIHelper.Color.whiteSmokeColor
-        tabBar.tintColor = UIHelper.Color.pictalioBlueColor
+        tabBar.tintColor = UIHelper.Color.color
         tabBar.unselectedItemTintColor = .black
         setupTabBar()
         self.tabBarController?.tabBar.isTranslucent = true
