@@ -48,17 +48,21 @@ class ApiService {
                 guard let data = data else { return }
                 
                 do {
-                    print("Data = ", data)
-                    let json = try JSONSerialization.jsonObject(with: data)
+                    //let jsonData = try JSONSerialization.data(withJSONObject: data, options: JSONSerialization.WritingOptions()) as Data
+                    //print("Data = ", data)
+                    //let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                    let json = JSON(data) as JSON
                     print("Json = ", json)
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    vc.models = try decoder.decode([UserModel].self, from : data)
-                    
+                    vc.models = try decoder.decode([UserModel].self, from : json as Data)
+                        //var userModel = UserModel(gender: json["gender"].stringValue as! String, name: json["name"] as! NameModel, email: json["email"] as! String, picture: json["picture"] as! PictureModel)
                     print(vc.models)
                 } catch {
                     print("JSON error: \(error.localizedDescription)")
                 }
+                
+                //var userModel = UserModel(gender: json["gender"], name: json["name"], email: json["email"], picture: json["picture"])
          
             }
          })
