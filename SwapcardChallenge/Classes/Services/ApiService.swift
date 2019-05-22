@@ -12,51 +12,72 @@ import Alamofire
 
 class ApiService {
     func fetchUsers(vc: UsersListVC, success: (() -> Void)? = nil, error: ((Int, String) -> Void)? = nil) {
-        
         let params = [
-            "results" : 20,
-            "page" : 1
-            ] as [String : Any]
+            "results" : "10",
+            "page" : "1"
+            ] as [String : String]
         
         let headers = [
             "Content-Type": "application/json"
         ]
         
-        Alamofire.request("https://randomuser.me/api/?results=10&page=1", method: .get, parameters: params, encoding:  JSONEncoding.default, headers: headers)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success(let data):
-                    do {
-                        let results = JSON(data)
-                        print("results = ", results)
-                        let jsonData = try JSONSerialization.data(withJSONObject: data, options: JSONSerialization.WritingOptions()) as NSData
-                        let decoder = JSONDecoder()
-                        print(jsonData)
-                        decoder.keyDecodingStrategy = .convertFromSnakeCase
-                        let root = try decoder.decode(Root.self, from : jsonData as Data)
-                        vc.models = root.results!
-                        if vc.models.count > 0 {
-                            vc.tableView.reloadData()
-                            if let cb = success {
-                                cb()
-                            }
-                        }
-                    } catch let jsonError {
-                        print("Failed to decode: ", jsonError)
-                    }
-                    
-                    
-                case .failure(let errorResponse):
-                    let body = String(data: response.data!, encoding: String.Encoding.utf8) ?? ""
-                    print("Error: \(body)")
-                    
-                    
+        let request = NSMutableURLRequest(url: NSURL(string: "https://randomuser.me/api/?results=10&page=1")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, errorResponse) -> Void in
+            if (error != nil) {
+                print("Client error")
+            } else {
+                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                    print("Server error!")
                     if let cb = error {
-                        cb(errorResponse._code, body)
+                        let body = String(data: data!, encoding: String.Encoding.utf8) ?? ""
+                        cb(errorResponse!._code, body)
                     }
+                    return
                 }
-        }
+                
+                guard let mime = response.mimeType, mime == "application/json" else {
+                    print("Wrong MIME type!")
+                    return
+                }
+                
+                guard let data = data else { return }
+                
+                do {
+                    //let jsonData = try JSONSerialization.data(withJSONObject: data, options: JSONSerialization.WritingOptions()) as Data
+                    //print("Data = ", data)
+                    //let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                    let json = JSON(data) as JSON
+                    print("Json = ", json)
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let root = try decoder.decode(Root.self, from : data)
+                    vc.models = root.results ?? [UserModel]()
+                    //var userModel = UserModel(gender: json["gender"].stringValue as! String, name: json["name"] as! NameModel, email: json["email"] as! String, picture: json["picture"] as! PictureModel)
+                    print(vc.models)
+                    if vc.models.count > 0 {
+                        vc.reload()
+                        if let cb = success {
+                            cb()
+                        }
+                    }
+                } catch {
+                    print("JSON error: \(error.localizedDescription)")
+                }
+                
+                //var userModel = UserModel(gender: json["gender"], name: json["name"], email: json["email"], picture: json["picture"])
+                
+            }
+        })
+        
+        dataTask.resume()
+        
+        
     }
-
+    
 }

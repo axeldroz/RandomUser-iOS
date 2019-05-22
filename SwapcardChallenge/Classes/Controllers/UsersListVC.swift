@@ -35,6 +35,9 @@ class UsersListVC: UIViewController {
         apiService.fetchUsers(vc: self)
     }
     
+    func reload() {
+        self.tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
