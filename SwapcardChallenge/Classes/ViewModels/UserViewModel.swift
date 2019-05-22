@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserModelView {
+struct UserViewModel {
     let imagePath : String?
     let fullName : String?
     let email : String?

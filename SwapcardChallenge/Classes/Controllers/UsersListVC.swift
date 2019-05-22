@@ -58,11 +58,10 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UITableViewCell
-        //let feedImageModel = FeedImageModel(id: 1, authorName: nil, postedAt: nil, location: nil, title: nil, description: nil, priceExcT: nil, priceIT: nil, rating: nil, path: "https://blobpictaliodev.blob.core.windows.net/images/d42c1ee3-8bf2-4d5f-8805-8ec614505d58.jpg")
-        //let feedImageVM = FeedImageViewModel(model: imageModels[indexPath.row])
-        //cell.viewModel = feedImageVM
-        //cell.backgroundColor = .clear
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
+        let viewModel = UserViewModel(model: self.models[indexPath.row])
+        cell.viewModel = viewModel
+        cell.backgroundColor = .clear
         return cell as UITableViewCell
     }
     

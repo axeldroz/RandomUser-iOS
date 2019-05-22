@@ -36,10 +36,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="82" id="w0C-lF-po2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="82" id="w0C-lF-po2" customClass="UsersListCell" customModule="SwapcardChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w0C-lF-po2" id="15k-J4-Q7j">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w0C-lF-po2" id="15k-J4-Q7j">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="81.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -69,13 +69,17 @@
                                                 <constraint firstItem="qoH-i4-7Lb" firstAttribute="leading" secondItem="15k-J4-Q7j" secondAttribute="leading" constant="20" id="NKa-UC-s2r"/>
                                                 <constraint firstItem="qoH-i4-7Lb" firstAttribute="top" secondItem="15k-J4-Q7j" secondAttribute="top" constant="8" id="V8Q-kZ-QIE"/>
                                                 <constraint firstAttribute="trailing" secondItem="gpD-L1-Ve8" secondAttribute="trailing" constant="20" id="VON-F2-A3t"/>
-                                                <constraint firstItem="qoH-i4-7Lb" firstAttribute="bottom" secondItem="15k-J4-Q7j" secondAttribute="bottom" constant="-5.5" id="We6-vL-Vz8"/>
                                                 <constraint firstItem="gpD-L1-Ve8" firstAttribute="trailing" secondItem="15k-J4-Q7j" secondAttribute="trailing" constant="-20" id="gIl-cb-2x7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BGI-VH-CRQ" secondAttribute="trailing" constant="20" id="kKl-AH-gdy"/>
                                                 <constraint firstItem="gpD-L1-Ve8" firstAttribute="top" secondItem="BGI-VH-CRQ" secondAttribute="bottom" constant="8" id="pb2-b5-Kga"/>
                                                 <constraint firstItem="BGI-VH-CRQ" firstAttribute="leading" secondItem="qoH-i4-7Lb" secondAttribute="trailing" constant="20" id="zti-Fq-rnJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emailLabel" destination="gpD-L1-Ve8" id="QEk-fP-cv8"/>
+                                            <outlet property="fullNameLabel" destination="BGI-VH-CRQ" id="ai2-UJ-ulS"/>
+                                            <outlet property="imageProfileView" destination="qoH-i4-7Lb" id="x8O-wR-AdB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -95,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZR-Zf-8jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="-104"/>
+            <point key="canvasLocation" x="2313" y="-160"/>
         </scene>
     </scenes>
 </document>

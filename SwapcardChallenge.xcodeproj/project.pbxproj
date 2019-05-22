@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68BD0022952BD4003F4049 /* UsersListCell.swift */; };
 		2E702B422287999700B04D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B412287999700B04D20 /* AppDelegate.swift */; };
 		2E702B442287999700B04D20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B432287999700B04D20 /* ViewController.swift */; };
 		2E702B472287999700B04D20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B452287999700B04D20 /* Main.storyboard */; };
@@ -17,7 +18,7 @@
 		2EFF6D8322894C5300CE97CA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */; };
 		2EFF6D8522894CCD00CE97CA /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8422894CCD00CE97CA /* UIHelper.swift */; };
 		2EFF6D872289540500CE97CA /* UsersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D862289540500CE97CA /* UsersListVC.swift */; };
-		2EFF6D8922895BC900CE97CA /* UserModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8822895BC900CE97CA /* UserModelView.swift */; };
+		2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8822895BC900CE97CA /* UserViewModel.swift */; };
 		2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8A22895C5900CE97CA /* UserModel.swift */; };
 		2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8C22895FAE00CE97CA /* ApiService.swift */; };
 		B5AC9D81EC7C4A706F3CC8C1 /* Pods_SwapcardChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A591D5D4C47AE7769EFDD84B /* Pods_SwapcardChallengeTests.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E68BD0022952BD4003F4049 /* UsersListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListCell.swift; sourceTree = "<group>"; };
 		2E702B3E2287999700B04D20 /* SwapcardChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwapcardChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E702B412287999700B04D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E702B432287999700B04D20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +51,7 @@
 		2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2EFF6D8422894CCD00CE97CA /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		2EFF6D862289540500CE97CA /* UsersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListVC.swift; sourceTree = "<group>"; };
-		2EFF6D8822895BC900CE97CA /* UserModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelView.swift; sourceTree = "<group>"; };
+		2EFF6D8822895BC900CE97CA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		2EFF6D8A22895C5900CE97CA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2EFF6D8C22895FAE00CE97CA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		306611F719DBFF7B08B90F55 /* Pods-SwapcardChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwapcardChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwapcardChallengeTests/Pods-SwapcardChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		2EFF6D7A22894AC100CE97CA /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				2E68BD0022952BD4003F4049 /* UsersListCell.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -188,7 +191,7 @@
 		2EFF6D8122894B2200CE97CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2EFF6D8822895BC900CE97CA /* UserModelView.swift */,
+				2EFF6D8822895BC900CE97CA /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -384,8 +387,9 @@
 			files = (
 				2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */,
 				2E702B4A2287999700B04D20 /* SwapcardChallenge.xcdatamodeld in Sources */,
-				2EFF6D8922895BC900CE97CA /* UserModelView.swift in Sources */,
+				2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
+				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,
 				2EFF6D872289540500CE97CA /* UsersListVC.swift in Sources */,
 				2E702B442287999700B04D20 /* ViewController.swift in Sources */,
 				2EFF6D8322894C5300CE97CA /* MainTabBarController.swift in Sources */,
