@@ -9,7 +9,6 @@ target 'SwapcardChallenge' do
   pod 'Realm'
   pod 'RealmSwift'
   pod 'SwiftyJSON'
-  pod 'SwiftSpinner'
   pod 'Nuke', '~> 7.0'
 
   target 'SwapcardChallengeTests' do

@@ -27,3 +27,7 @@ struct UserModel : Decodable {
     let email : String?
     let picture : PictureModel?
 }
+
+struct Root : Decodable {
+    let results: [UserModel]?
+}
