@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5615D1229BC13700870AF6 /* FavorisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5615D0229BC13700870AF6 /* FavorisVC.swift */; };
 		2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68BD0022952BD4003F4049 /* UsersListCell.swift */; };
 		2E702B422287999700B04D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B412287999700B04D20 /* AppDelegate.swift */; };
 		2E702B442287999700B04D20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B432287999700B04D20 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E5615D0229BC13700870AF6 /* FavorisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavorisVC.swift; path = /Users/axeldroz/Projects/SwapcardChallenge/SwapcardChallenge/Classes/Controllers/FavorisVC.swift; sourceTree = "<absolute>"; };
 		2E68BD0022952BD4003F4049 /* UsersListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListCell.swift; sourceTree = "<group>"; };
 		2E702B3E2287999700B04D20 /* SwapcardChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwapcardChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E702B412287999700B04D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		2EFF6D7B22894ACB00CE97CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E5615D0229BC13700870AF6 /* FavorisVC.swift */,
 				2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */,
 				2EFF6D862289540500CE97CA /* UsersListVC.swift */,
 				2E702B432287999700B04D20 /* ViewController.swift */,
@@ -387,6 +390,7 @@
 			files = (
 				2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */,
 				2E702B4A2287999700B04D20 /* SwapcardChallenge.xcdatamodeld in Sources */,
+				2E5615D1229BC13700870AF6 /* FavorisVC.swift in Sources */,
 				2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
 				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,

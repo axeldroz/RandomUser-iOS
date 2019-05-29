@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             schemaVersion: 12,
             deleteRealmIfMigrationNeeded: true
         )
-        
-        // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
         return true
     }

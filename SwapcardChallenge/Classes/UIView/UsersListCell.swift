@@ -2,7 +2,7 @@
 //  UsersListCell.swift
 //  
 //
-//  Created by Axel Droz on 22/05/2019.
+//  Created by Axel Drozdzynski on 22/05/2019.
 //
 
 import UIKit

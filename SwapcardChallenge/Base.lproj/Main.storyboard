@@ -23,6 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3997" y="-181"/>
         </scene>
         <!--Users ListVC-->
         <scene sceneID="19i-Oh-eP7">
@@ -98,6 +99,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZR-Zf-8jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311.594202898551" y="-160.04464285714286"/>
+        </scene>
+        <!--FavorisVC-->
+        <scene sceneID="Sbi-Dv-udv">
+            <objects>
+                <viewController storyboardIdentifier="favorisVC" id="ZdD-u9-Fjs" customClass="FavorisVC" customModule="SwapcardChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="urn-6x-EVL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3u-JJ-pop">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="82" id="LeB-yM-kvj" customClass="UsersListCell" customModule="SwapcardChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LeB-yM-kvj" id="Rgs-AG-qh7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="81.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z6E-Q3-RbT">
+                                                    <rect key="frame" x="20" y="8" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="9Nh-fv-AKY"/>
+                                                        <constraint firstAttribute="height" constant="60" id="F7E-N6-KNw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="axel1.drozdzynski@epitech.eu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-bf-cet">
+                                                    <rect key="frame" x="100" y="45" width="170" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Axel Droz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBS-ZQ-rrk">
+                                                    <rect key="frame" x="100" y="13" width="274" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z6E-Q3-RbT" firstAttribute="leading" secondItem="Rgs-AG-qh7" secondAttribute="leading" constant="20" id="2b6-ES-PmH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WBS-ZQ-rrk" secondAttribute="trailing" constant="20" id="5P7-mX-hgW"/>
+                                                <constraint firstItem="WBS-ZQ-rrk" firstAttribute="leading" secondItem="Z6E-Q3-RbT" secondAttribute="trailing" constant="20" id="LjZ-c2-gu8"/>
+                                                <constraint firstItem="3Jc-bf-cet" firstAttribute="leading" secondItem="Z6E-Q3-RbT" secondAttribute="trailing" constant="20" id="SB9-zZ-JHT"/>
+                                                <constraint firstItem="Z6E-Q3-RbT" firstAttribute="top" secondItem="Rgs-AG-qh7" secondAttribute="top" constant="8" id="YsP-er-z1G"/>
+                                                <constraint firstItem="3Jc-bf-cet" firstAttribute="top" secondItem="WBS-ZQ-rrk" secondAttribute="bottom" constant="8" id="gR2-NW-1oN"/>
+                                                <constraint firstItem="WBS-ZQ-rrk" firstAttribute="top" secondItem="Rgs-AG-qh7" secondAttribute="top" constant="13" id="jqc-K7-4Ra"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="emailLabel" destination="3Jc-bf-cet" id="bHs-ol-PW3"/>
+                                            <outlet property="fullNameLabel" destination="WBS-ZQ-rrk" id="kum-p1-9xm"/>
+                                            <outlet property="imageProfileView" destination="Z6E-Q3-RbT" id="672-ig-Qw1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eSH-zI-5Hc" firstAttribute="trailing" secondItem="H3u-JJ-pop" secondAttribute="trailing" id="Dlk-cl-VYv"/>
+                            <constraint firstItem="H3u-JJ-pop" firstAttribute="leading" secondItem="eSH-zI-5Hc" secondAttribute="leading" id="EG7-lb-8Y5"/>
+                            <constraint firstItem="H3u-JJ-pop" firstAttribute="top" secondItem="eSH-zI-5Hc" secondAttribute="top" id="ZHr-ak-rj8"/>
+                            <constraint firstItem="eSH-zI-5Hc" firstAttribute="bottom" secondItem="H3u-JJ-pop" secondAttribute="bottom" id="fFX-co-2Qt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eSH-zI-5Hc"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="H3u-JJ-pop" id="iAm-5K-z9i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckb-bX-sIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3091" y="-160"/>
         </scene>
     </scenes>
 </document>

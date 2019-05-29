@@ -38,7 +38,8 @@ class MainTabBarController: UITabBarController {
         tab1.tabBarItem.selectedImage = UIImage(named: "ic-contact")
         tab1.tabBarItem.selectedImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
-        let tab2 = UINavigationController(rootViewController: ViewController())
+        let favorisVC = storyboard.instantiateViewController(withIdentifier: "favorisVC")
+        let tab2 = UINavigationController(rootViewController: favorisVC)
         tab2.tabBarItem.image = UIImage(named: "ic-favori")
         tab2.tabBarItem.image?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         tab2.tabBarItem.selectedImage = UIImage(named: "ic favori")
