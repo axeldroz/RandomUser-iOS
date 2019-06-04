@@ -34,11 +34,13 @@ class UsersListVC: UIViewController {
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        apiService.fetchUsers(vc: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        apiService.fetchUsers(vc: self)
+        // uncomment this line if you want the suggested users reload each time you go back to the view
+        //apiService.fetchUsers(vc: self)
     }
     
     func reload() {
@@ -48,6 +50,44 @@ class UsersListVC: UIViewController {
     @objc func refresh (_ refreshControl: UIRefreshControl) {
         apiService.fetchUsers(vc: self)
         self.refreshControl.endRefreshing()
+    }
+    
+    func addFriendToLocalDB(id: Int, userModel: UserModel, username: String) {
+        let friend = Friend()
+        let picture = Picture()
+        friend.firstname = userModel.name?.first ?? "unknown"
+        friend.lastname = userModel.name?.last ?? "unknown"
+        friend.email = userModel.email ?? "unknown"
+        friend.username = username
+        friend.id = id
+        friend.title = userModel.name?.title ?? "unknown"
+        friend.gender = userModel.gender ?? "unknown"
+        picture.id = friend.id
+        picture.thumbail = userModel.picture?.thumbail ?? ""
+        picture.medium = userModel.picture?.medium ?? ""
+        picture.large = userModel.picture?.large ?? ""
+        friend.picture = picture
+        do {
+            try defRealm.write({ () -> Void in
+                defRealm.add(friend)
+            })
+        } catch (let e) {
+            print("Realm exception : ", e.localizedDescription)
+        }
+    }
+    
+    func userExists(username: String) -> Bool {
+        let friends = defRealm.objects(Friend.self)
+        var nb = 0
+        
+        if (username == "") {
+            return false
+        }
+        if friends.count > 0 {
+            let predicate = NSPredicate(format: "username = %@", username)
+            nb = defRealm.objects(Friend.self).filter(predicate).count
+        }
+        return nb > 0;
     }
 
     /*
@@ -70,14 +110,18 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
-        let viewModel = UserViewModel(model: self.models[indexPath.row])
+        let model = self.models[indexPath.row]
+        let viewModel = UserViewModel(model: model)
         let image = UIImage(named: "ic-add")
-        let addImageView = UIImageView(image: image)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
-        addImageView.isUserInteractionEnabled = true
-        addImageView.addGestureRecognizer(tap)
-        addImageView.tag = indexPath.row
-        cell.accessoryView = addImageView
+        
+        if (!self.userExists(username: model.login?.username ?? "")) {
+            let addImageView = UIImageView(image: image)
+            let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
+            addImageView.isUserInteractionEnabled = true
+            addImageView.addGestureRecognizer(tap)
+            addImageView.tag = indexPath.row
+            cell.accessoryView = addImageView
+        }
         cell.viewModel = viewModel
         cell.backgroundColor = .clear
         return cell as UITableViewCell
@@ -85,58 +129,23 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
-        print("ok")
-        view?.isHidden = true
-        // add to db local
+        let friends = defRealm.objects(Friend.self)
+        
         guard let index = view?.tag else {
             print("Error guard index")
             return
         }
         let userModel = self.models[index]
-        print("userMode :", userModel)
         guard let username = userModel.login?.username else {
             print("Error guard username")
             return
         }
-        let friends = defRealm.objects(Friend.self)
-        var nb = 0
-        
-
-        
-        if friends.count > 0 {
-            print("IF 1")
-            let predicate = NSPredicate(format: "username = %@", username)
-            let nb = defRealm.objects(Friend.self).filter(predicate).count
-        }
-        if (nb <= 0) {
-            print("IF 2")
-            if (nb <= 0) {
-                let friend = Friend()
-                let picture = Picture()
-                friend.firstname = userModel.name?.first ?? "unknown"
-                friend.lastname = userModel.name?.last ?? "unknown"
-                friend.email = userModel.email ?? "unknown"
-                friend.username = username
-                friend.id = friends.count
-                friend.title = userModel.name?.title ?? "unknown"
-                friend.gender = userModel.gender ?? "unknown"
-                picture.id = friend.id
-                picture.thumbail = userModel.picture?.thumbail ?? ""
-                picture.medium = userModel.picture?.medium ?? ""
-                picture.large = userModel.picture?.large ?? ""
-                friend.picture = picture
-                do {
-                    try defRealm.write({ () -> Void in
-                        defRealm.add(friend)
-                    })
-                } catch (let e) {
-                    print("Realm exception : ", e.localizedDescription)
-                }
-            }
+        view?.isHidden = true
+        if (!userExists(username: username)) {
+            self.addFriendToLocalDB(id: friends.count, userModel: userModel, username: username)
         } else {
             print ("user already exists")
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -80,7 +80,7 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
         let viewModel = UserViewModel(model: self.models[indexPath.row])
         let image = UIImage(named: "ic-trash")
         let addImageView = UIImageView(image: image)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(removeTapped))
         addImageView.isUserInteractionEnabled = true
         addImageView.addGestureRecognizer(tap)
         addImageView.tag = indexPath.row
@@ -90,9 +90,8 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
         return cell as UITableViewCell
     }
     
-    @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func removeTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
-        print("ok")
         view?.isHidden = true
         // add to db local
         guard let index = view?.tag else {
