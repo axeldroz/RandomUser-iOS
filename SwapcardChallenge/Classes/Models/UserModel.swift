@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 struct NameModel : Decodable {
     let title : String?
@@ -21,11 +20,17 @@ struct PictureModel : Decodable {
     let thumbail : String?
 }
 
+struct Login : Decodable {
+    let uuid : String?
+    let username : String?
+}
+
 struct UserModel : Decodable {
     let gender : String?
     let name : NameModel?
     let email : String?
     let picture : PictureModel?
+    let login : Login?
 }
 
 struct Root : Decodable {

@@ -17,13 +17,12 @@ class UsersListCell: UITableViewCell {
     
     var viewModel : UserViewModel? {
         didSet {
-            print(viewModel)
             if let path = viewModel?.imagePath {
                 Nuke.loadImage(with: getURLFromPath(path),
                                into: self.imageProfileView)
             }
             if let vm = viewModel {
-                print("vm", vm)
+                //print("vm", vm)
                 fullNameLabel.text = vm.fullName
                 emailLabel.text = vm.email
             }

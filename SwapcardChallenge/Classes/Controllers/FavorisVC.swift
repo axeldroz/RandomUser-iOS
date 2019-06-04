@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavorisVC: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    var models = [UserModel]()
+    var models : Results<Friend>!
     
     
     override func viewDidLoad() {
@@ -27,11 +28,18 @@ class FavorisVC: UIViewController {
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        getFavoris()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        apiService.fetchUsers2(vc: self)
+        getFavoris()
+        reload()
+        //apiService.fetchUsers2(vc: self)
+    }
+    
+    private func getFavoris() {
+        self.models = defRealm.objects(Friend.self)
     }
     
     func reload() {
@@ -53,13 +61,13 @@ class FavorisVC: UIViewController {
 extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.models.count
+        return self.models?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
         let viewModel = UserViewModel(model: self.models[indexPath.row])
-        let image = UIImage(named: "ic-add")
+        let image = UIImage(named: "ic-trash")
         let addImageView = UIImageView(image: image)
         let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
         addImageView.isUserInteractionEnabled = true
@@ -73,9 +81,28 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
-        
+        print("ok")
         view?.isHidden = true
         // add to db local
+        guard let index = view?.tag else {
+            print("Error guard index")
+            return
+        }
+        let friend = self.models[index]
+        print("fiend :", friend)
+
+        do {
+            try defRealm.write {
+                if let pic = friend.picture {
+                    defRealm.delete(pic)
+                }
+                defRealm.delete(friend)
+            }
+        } catch (let ex) {
+            print("ex : ", ex.localizedDescription)
+        }
+        self.getFavoris()
+        self.reload()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

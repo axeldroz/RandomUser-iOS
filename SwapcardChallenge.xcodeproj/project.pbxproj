@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E5615D1229BC13700870AF6 /* FavorisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5615D0229BC13700870AF6 /* FavorisVC.swift */; };
+		2E42219622A0F50B0017EA84 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42219522A0F50B0017EA84 /* Realm.framework */; };
+		2E42219822A0F50B0017EA84 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42219722A0F50B0017EA84 /* RealmSwift.framework */; };
 		2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68BD0022952BD4003F4049 /* UsersListCell.swift */; };
 		2E702B422287999700B04D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B412287999700B04D20 /* AppDelegate.swift */; };
 		2E702B442287999700B04D20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B432287999700B04D20 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 		2E702B4C2287999800B04D20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B4B2287999800B04D20 /* Assets.xcassets */; };
 		2E702B4F2287999800B04D20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B4D2287999800B04D20 /* LaunchScreen.storyboard */; };
 		2E702B5A2287999800B04D20 /* SwapcardChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */; };
+		2EBB2127229E82F400D912F7 /* FavorisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB2126229E82F400D912F7 /* FavorisVC.swift */; };
+		2EBB212A229E83C500D912F7 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB2129229E83C500D912F7 /* Friend.swift */; };
+		2EBB212C229E84FF00D912F7 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB212B229E84FF00D912F7 /* Picture.swift */; };
 		2EFF6D8322894C5300CE97CA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */; };
 		2EFF6D8522894CCD00CE97CA /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8422894CCD00CE97CA /* UIHelper.swift */; };
 		2EFF6D872289540500CE97CA /* UsersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D862289540500CE97CA /* UsersListVC.swift */; };
@@ -37,7 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E5615D0229BC13700870AF6 /* FavorisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavorisVC.swift; path = /Users/axeldroz/Projects/SwapcardChallenge/SwapcardChallenge/Classes/Controllers/FavorisVC.swift; sourceTree = "<absolute>"; };
+		2E42219522A0F50B0017EA84 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E42219722A0F50B0017EA84 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E68BD0022952BD4003F4049 /* UsersListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListCell.swift; sourceTree = "<group>"; };
 		2E702B3E2287999700B04D20 /* SwapcardChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwapcardChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E702B412287999700B04D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +55,9 @@
 		2E702B552287999800B04D20 /* SwapcardChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwapcardChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapcardChallengeTests.swift; sourceTree = "<group>"; };
 		2E702B5B2287999800B04D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EBB2126229E82F400D912F7 /* FavorisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorisVC.swift; sourceTree = "<group>"; };
+		2EBB2129229E83C500D912F7 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		2EBB212B229E84FF00D912F7 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2EFF6D8422894CCD00CE97CA /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		2EFF6D862289540500CE97CA /* UsersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListVC.swift; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E42219622A0F50B0017EA84 /* Realm.framework in Frameworks */,
+				2E42219822A0F50B0017EA84 /* RealmSwift.framework in Frameworks */,
 				C54B29311C85DB02C05E9BB3 /* Pods_SwapcardChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +137,15 @@
 			path = SwapcardChallengeTests;
 			sourceTree = "<group>";
 		};
+		2EBB2128229E83AC00D912F7 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				2EBB2129229E83C500D912F7 /* Friend.swift */,
+				2EBB212B229E84FF00D912F7 /* Picture.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		2EFF6D7A22894AC100CE97CA /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +157,7 @@
 		2EFF6D7B22894ACB00CE97CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E5615D0229BC13700870AF6 /* FavorisVC.swift */,
+				2EBB2126229E82F400D912F7 /* FavorisVC.swift */,
 				2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */,
 				2EFF6D862289540500CE97CA /* UsersListVC.swift */,
 				2E702B432287999700B04D20 /* ViewController.swift */,
@@ -179,6 +198,7 @@
 		2EFF6D7F22894B1400CE97CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2EBB2128229E83AC00D912F7 /* Local */,
 				2EFF6D8A22895C5900CE97CA /* UserModel.swift */,
 			);
 			path = Models;
@@ -213,6 +233,8 @@
 		4FF89C01A475A3AE20646D1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E42219522A0F50B0017EA84 /* Realm.framework */,
+				2E42219722A0F50B0017EA84 /* RealmSwift.framework */,
 				386687DE22FAE40E117F0B7E /* Pods_SwapcardChallenge.framework */,
 				A591D5D4C47AE7769EFDD84B /* Pods_SwapcardChallengeTests.framework */,
 			);
@@ -390,13 +412,15 @@
 			files = (
 				2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */,
 				2E702B4A2287999700B04D20 /* SwapcardChallenge.xcdatamodeld in Sources */,
-				2E5615D1229BC13700870AF6 /* FavorisVC.swift in Sources */,
+				2EBB2127229E82F400D912F7 /* FavorisVC.swift in Sources */,
+				2EBB212A229E83C500D912F7 /* Friend.swift in Sources */,
 				2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
 				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,
 				2EFF6D872289540500CE97CA /* UsersListVC.swift in Sources */,
 				2E702B442287999700B04D20 /* ViewController.swift in Sources */,
 				2EFF6D8322894C5300CE97CA /* MainTabBarController.swift in Sources */,
+				2EBB212C229E84FF00D912F7 /* Picture.swift in Sources */,
 				2EFF6D8522894CCD00CE97CA /* UIHelper.swift in Sources */,
 				2E702B422287999700B04D20 /* AppDelegate.swift in Sources */,
 			);

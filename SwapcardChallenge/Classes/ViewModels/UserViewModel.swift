@@ -19,4 +19,11 @@ struct UserViewModel {
         self.fullName = (model.name?.first ?? "Unknown") + " " + (model.name?.last ?? "Unkwown")
         self.email = model.email
     }
+    
+    // DI from local db
+    init(model : Friend) {
+        self.imagePath = model.picture?.medium
+        self.fullName = (model.firstname ?? "Unknown") + " " + (model.lastname ?? "Unkwown")
+        self.email = model.email
+    }
 }

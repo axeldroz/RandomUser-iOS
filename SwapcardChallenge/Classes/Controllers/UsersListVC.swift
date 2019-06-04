@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class UsersListVC: UIViewController {
 
@@ -74,9 +75,58 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
-        
+        print("ok")
         view?.isHidden = true
         // add to db local
+        guard let index = view?.tag else {
+            print("Error guard index")
+            return
+        }
+        let userModel = self.models[index]
+        print("userMode :", userModel)
+        guard let username = userModel.login?.username else {
+            print("Error guard username")
+            return
+        }
+        let friends = defRealm.objects(Friend.self)
+        var nb = 0
+        
+
+        
+        if friends.count > 0 {
+            print("IF 1")
+            let predicate = NSPredicate(format: "username = %@", username)
+            let nb = defRealm.objects(Friend.self).filter(predicate).count
+        }
+        if (nb <= 0) {
+            print("IF 2")
+            if (nb <= 0) {
+                let friend = Friend()
+                let picture = Picture()
+                friend.firstname = userModel.name?.first ?? "unknown"
+                friend.lastname = userModel.name?.last ?? "unknown"
+                friend.email = userModel.email ?? "unknown"
+                friend.username = username
+                friend.id = friends.count
+                friend.title = userModel.name?.title ?? "unknown"
+                friend.gender = userModel.gender ?? "unknown"
+                picture.id = friend.id
+                picture.thumbail = userModel.picture?.thumbail ?? ""
+                picture.medium = userModel.picture?.medium ?? ""
+                picture.large = userModel.picture?.large ?? ""
+                friend.picture = picture
+                do {
+                    try defRealm.write({ () -> Void in
+                        defRealm.add(friend)
+                    })
+                } catch (let e) {
+                    print("Realm exception : ", e.localizedDescription)
+                }
+            }
+        } else {
+            print ("user already exists")
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

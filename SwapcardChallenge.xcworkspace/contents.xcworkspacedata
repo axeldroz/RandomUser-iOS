@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/axeldroz/Projects/SwapcardChallenge/SwapcardChallenge/Classes/Controllers/FavorisVC.swift">
-   </FileRef>
-   <FileRef
       location = "group:SwapcardChallenge.xcodeproj">
    </FileRef>
    <FileRef

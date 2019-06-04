@@ -27,11 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
-        let config = Realm.Configuration(
+        /*var config = Realm.Configuration(
             schemaVersion: 12,
             deleteRealmIfMigrationNeeded: true
-        )
+        )*/
+        var config = Realm.Configuration();
+        //config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("-swapcard.realm")
         Realm.Configuration.defaultConfiguration = config
+        print("Config : ", config.fileURL)
         return true
     }
 
