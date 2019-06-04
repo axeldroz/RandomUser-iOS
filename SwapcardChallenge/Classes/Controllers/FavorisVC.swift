@@ -14,6 +14,11 @@ class FavorisVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var models : Results<Friend>!
     
+    /*lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +50,12 @@ class FavorisVC: UIViewController {
     func reload() {
         self.tableView.reloadData()
     }
+    
+    /*@objc func refresh (_ refreshControl: UIRefreshControl) {
+        getFavoris()
+        reload()
+        self.refreshControl.endRefreshing()
+    }*/
     
     /*
      // MARK: - Navigation

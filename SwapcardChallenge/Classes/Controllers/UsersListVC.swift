@@ -14,6 +14,11 @@ class UsersListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var models = [UserModel]()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +30,10 @@ class UsersListVC: UIViewController {
         titleLabel.textAlignment = .center
         navigationItem.titleView = titleLabel
         UIHelper.loadNavigationBarStyle(self.navigationController!)
+        self.tableView.addSubview(self.refreshControl)
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +43,11 @@ class UsersListVC: UIViewController {
     
     func reload() {
         self.tableView.reloadData()
+    }
+    
+    @objc func refresh (_ refreshControl: UIRefreshControl) {
+        apiService.fetchUsers(vc: self)
+        self.refreshControl.endRefreshing()
     }
 
     /*
