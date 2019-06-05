@@ -10,6 +10,7 @@ import RealmSwift
 
 class Friend : Object {
     @objc dynamic var id = 0
+    @objc dynamic var uuid = ""
     @objc dynamic var username = ""
     @objc dynamic var gender : String = ""
     @objc dynamic var title : String = ""
@@ -19,6 +20,6 @@ class Friend : Object {
     @objc dynamic var picture : Picture?
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "uuid"
     }
 }

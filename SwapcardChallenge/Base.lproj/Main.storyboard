@@ -71,6 +71,7 @@
                                                 <constraint firstItem="qoH-i4-7Lb" firstAttribute="top" secondItem="15k-J4-Q7j" secondAttribute="top" constant="8" id="V8Q-kZ-QIE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BGI-VH-CRQ" secondAttribute="trailing" constant="20" id="kKl-AH-gdy"/>
                                                 <constraint firstItem="gpD-L1-Ve8" firstAttribute="top" secondItem="BGI-VH-CRQ" secondAttribute="bottom" constant="8" id="pb2-b5-Kga"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gpD-L1-Ve8" secondAttribute="trailing" constant="20" symbolic="YES" id="vd6-NP-6T9"/>
                                                 <constraint firstItem="BGI-VH-CRQ" firstAttribute="leading" secondItem="qoH-i4-7Lb" secondAttribute="trailing" constant="20" id="zti-Fq-rnJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -78,6 +79,26 @@
                                             <outlet property="emailLabel" destination="gpD-L1-Ve8" id="QEk-fP-cv8"/>
                                             <outlet property="fullNameLabel" destination="BGI-VH-CRQ" id="ai2-UJ-ulS"/>
                                             <outlet property="imageProfileView" destination="qoH-i4-7Lb" id="x8O-wR-AdB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityIndicator" id="fOv-ln-tnU" customClass="LoadingCell" customModule="SwapcardChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="110" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fOv-ln-tnU" id="3bx-gq-2L9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pNx-nB-YMO">
+                                                    <rect key="frame" x="197" y="12" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pNx-nB-YMO" firstAttribute="centerX" secondItem="3bx-gq-2L9" secondAttribute="centerX" id="hGo-zw-Ivj"/>
+                                                <constraint firstItem="pNx-nB-YMO" firstAttribute="centerY" secondItem="3bx-gq-2L9" secondAttribute="centerY" id="mTE-Jq-HTm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="spinner" destination="pNx-nB-YMO" id="OSC-FU-hgh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

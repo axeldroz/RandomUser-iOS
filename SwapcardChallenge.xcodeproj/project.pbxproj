@@ -17,6 +17,8 @@
 		2E702B4C2287999800B04D20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B4B2287999800B04D20 /* Assets.xcassets */; };
 		2E702B4F2287999800B04D20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B4D2287999800B04D20 /* LaunchScreen.storyboard */; };
 		2E702B5A2287999800B04D20 /* SwapcardChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */; };
+		2E7CAA3E22A79A8B0011A314 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAA3D22A79A8B0011A314 /* LoadingCell.swift */; };
+		2E7CAA4522A79B1C0011A314 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAA4422A79B1B0011A314 /* LoadingCell.swift */; };
 		2EBB2127229E82F400D912F7 /* FavorisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB2126229E82F400D912F7 /* FavorisVC.swift */; };
 		2EBB212A229E83C500D912F7 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB2129229E83C500D912F7 /* Friend.swift */; };
 		2EBB212C229E84FF00D912F7 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB212B229E84FF00D912F7 /* Picture.swift */; };
@@ -55,6 +57,8 @@
 		2E702B552287999800B04D20 /* SwapcardChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwapcardChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapcardChallengeTests.swift; sourceTree = "<group>"; };
 		2E702B5B2287999800B04D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7CAA3D22A79A8B0011A314 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingCell.swift; path = SwapcardChallenge/Classes/UIView/LoadingCell.swift; sourceTree = SOURCE_ROOT; };
+		2E7CAA4422A79B1B0011A314 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		2EBB2126229E82F400D912F7 /* FavorisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorisVC.swift; sourceTree = "<group>"; };
 		2EBB2129229E83C500D912F7 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2EBB212B229E84FF00D912F7 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		2EFF6D7A22894AC100CE97CA /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CAA4422A79B1B0011A314 /* LoadingCell.swift */,
 				2E68BD0022952BD4003F4049 /* UsersListCell.swift */,
 			);
 			path = UIView;
@@ -160,6 +165,7 @@
 				2EBB2126229E82F400D912F7 /* FavorisVC.swift */,
 				2EFF6D8222894C5300CE97CA /* MainTabBarController.swift */,
 				2EFF6D862289540500CE97CA /* UsersListVC.swift */,
+				2E7CAA3D22A79A8B0011A314 /* LoadingCell.swift */,
 				2E702B432287999700B04D20 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -414,10 +420,12 @@
 				2E702B4A2287999700B04D20 /* SwapcardChallenge.xcdatamodeld in Sources */,
 				2EBB2127229E82F400D912F7 /* FavorisVC.swift in Sources */,
 				2EBB212A229E83C500D912F7 /* Friend.swift in Sources */,
+				2E7CAA3E22A79A8B0011A314 /* LoadingCell.swift in Sources */,
 				2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
 				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,
 				2EFF6D872289540500CE97CA /* UsersListVC.swift in Sources */,
+				2E7CAA4522A79B1C0011A314 /* LoadingCell.swift in Sources */,
 				2E702B442287999700B04D20 /* ViewController.swift in Sources */,
 				2EFF6D8322894C5300CE97CA /* MainTabBarController.swift in Sources */,
 				2EBB212C229E84FF00D912F7 /* Picture.swift in Sources */,

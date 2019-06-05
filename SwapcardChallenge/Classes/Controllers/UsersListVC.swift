@@ -13,6 +13,7 @@ class UsersListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var models = [UserModel]()
+    var fetchingMore = false
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -34,27 +35,50 @@ class UsersListVC: UIViewController {
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        apiService.fetchUsers(vc: self)
+        self.fetchUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // uncomment this line if you want the suggested users reload each time you go back to the view
-        //apiService.fetchUsers(vc: self)
+        //fetchUsers()
     }
     
     func reload() {
         self.tableView.reloadData()
     }
     
+    func fetchUsers(_ reload: Bool = true, success: (([UserModel]) -> Void)? = nil, error: ((Int, String) -> Void)? = nil) {
+        apiService.fetchUsers(number: 10, page: 1, success: { models in
+            if (reload) {
+                self.models = models
+                if self.models.count > 0 {
+                    self.reload()
+                }
+            }
+            if let cb = success {
+                cb(models)
+            }
+        }, error : { code, body in
+            if let cb = error {
+                cb(code, body)
+            }
+        })
+    }
+    
     @objc func refresh (_ refreshControl: UIRefreshControl) {
-        apiService.fetchUsers(vc: self)
-        self.refreshControl.endRefreshing()
+        fetchUsers(success: { models in
+            self.refreshControl.endRefreshing()
+        }, error: { _,_ in })
     }
     
     func addFriendToLocalDB(id: Int, userModel: UserModel, username: String) {
         let friend = Friend()
         let picture = Picture()
+        guard let uuid = userModel.login?.uuid else {
+            print ("user with the same uuid has already been added")
+            return
+        }
         friend.firstname = userModel.name?.first ?? "unknown"
         friend.lastname = userModel.name?.last ?? "unknown"
         friend.email = userModel.email ?? "unknown"
@@ -67,6 +91,7 @@ class UsersListVC: UIViewController {
         picture.medium = userModel.picture?.medium ?? ""
         picture.large = userModel.picture?.large ?? ""
         friend.picture = picture
+        friend.uuid = uuid
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
@@ -89,6 +114,20 @@ class UsersListVC: UIViewController {
         }
         return nb > 0;
     }
+    
+    func fetchMore() {
+        fetchingMore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.fetchUsers(false, success: { newItems in
+                /*for item in newItems {
+                    self.models.append(item)
+                }*/
+                self.models.append(contentsOf: newItems)
+                self.reload()
+                self.fetchingMore = false
+            }, error: { _,_ in })
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -105,26 +144,42 @@ class UsersListVC: UIViewController {
 extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.models.count
+        if section == 0 {
+            return self.models.count
+        } else if section == 1 && fetchingMore {
+            return 1
+        }
+        return 0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
-        let model = self.models[indexPath.row]
-        let viewModel = UserViewModel(model: model)
-        let image = UIImage(named: "ic-add")
-        
-        if (!self.userExists(username: model.login?.username ?? "")) {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
+            let model = self.models[indexPath.row]
+            let viewModel = UserViewModel(model: model)
+            let image = UIImage(named: "ic-add")
             let addImageView = UIImageView(image: image)
             let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
             addImageView.isUserInteractionEnabled = true
             addImageView.addGestureRecognizer(tap)
             addImageView.tag = indexPath.row
             cell.accessoryView = addImageView
+        
+            if (self.userExists(username: model.login?.username ?? "")) {
+                addImageView.isHidden = true
+            }
+            cell.viewModel = viewModel
+            cell.backgroundColor = .clear
+            return cell as UITableViewCell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "activityIndicator", for: indexPath) as! LoadingCell
+            cell.spinner.startAnimating()
+            return cell
         }
-        cell.viewModel = viewModel
-        cell.backgroundColor = .clear
-        return cell as UITableViewCell
     }
     
     @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -149,7 +204,22 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 82
+        if indexPath.section == 0 {
+            return 82
+        } else if indexPath.section == 1 && fetchingMore {
+            return 44
+        }
+        return 0
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight - scrollView.frame.height + 20 {
+            if !fetchingMore {
+                self.fetchMore()
+            }
+        }
     }
 }
 
