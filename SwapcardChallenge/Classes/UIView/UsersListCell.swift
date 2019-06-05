@@ -22,7 +22,6 @@ class UsersListCell: UITableViewCell {
                                into: self.imageProfileView)
             }
             if let vm = viewModel {
-                //print("vm", vm)
                 fullNameLabel.text = vm.fullName
                 emailLabel.text = vm.email
             }
@@ -31,17 +30,23 @@ class UsersListCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.initImageLayou()
+    }
+    
+    func initImageLayou() {
+        imageProfileView.layer.borderWidth = 1.0
+        imageProfileView.layer.masksToBounds = false
+        imageProfileView.layer.borderColor = UIHelper.Color.whiteColor.cgColor
+        imageProfileView.layer.cornerRadius = imageProfileView.frame.size.height / 2 // imageProfileView.frame.size.height / 4 if you need a nice square
+        imageProfileView.clipsToBounds = true
     }
 
     // convert string to url
