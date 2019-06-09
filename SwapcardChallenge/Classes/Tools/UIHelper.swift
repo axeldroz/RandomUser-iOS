@@ -14,6 +14,7 @@ class UIHelper {
         static let whiteColor = UIColor.white
         static let whiteSmokeColor = UIColor(red: 245 / 255, green: 245 / 255, blue: 245 / 255, alpha: 1)
         static let greenSwapcard = UIColor(red: 5 / 255, green: 197 / 255, blue: 125 / 255, alpha: 1)
+        static let gray = UIColor(red: 232 / 255, green: 232 / 255, blue: 232 / 255, alpha: 1)
     }
     
     enum DeviceTypeHeight : Int{
