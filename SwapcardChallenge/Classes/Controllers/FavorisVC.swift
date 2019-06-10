@@ -91,8 +91,7 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
             return
         }
         let friend = self.models[index]
-        print("fiend :", friend)
-
+        pr
         do {
             try defRealm.write {
                 if let pic = friend.picture {

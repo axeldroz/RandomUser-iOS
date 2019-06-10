@@ -14,12 +14,7 @@ let serverUrl = "https://randomuser.me"
 let apiService = ApiService()
 
 var defRealm:Realm = {
-    do {
-        return try Realm()
-    } catch (let ex) {
-        print("Ex: ", ex.localizedDescription)
-        return try! Realm()
-    }
+    return try! Realm()
 }()
 
 @UIApplicationMain
@@ -32,14 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
-        var config = Realm.Configuration(
+        let config = Realm.Configuration(
             schemaVersion: 12,
             deleteRealmIfMigrationNeeded: true
         )
-        //var config = Realm.Configuration();
-        //config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("-swapcard.realm")
         Realm.Configuration.defaultConfiguration = config
-        print("Config : ", config.fileURL)
         return true
     }
 

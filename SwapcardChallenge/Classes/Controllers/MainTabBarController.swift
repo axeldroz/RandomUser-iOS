@@ -13,7 +13,6 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
         tabBar.barTintColor = UIHelper.Color.whiteSmokeColor
         tabBar.tintColor = UIHelper.Color.greenSwapcard
         tabBar.unselectedItemTintColor = .black
@@ -25,7 +24,6 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear")
         self.resizeIcons()
     }
     

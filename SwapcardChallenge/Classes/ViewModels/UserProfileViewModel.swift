@@ -87,7 +87,6 @@ struct UserProfileViewModel {
         self.age = model.age
         self.email = model.email
         self.phone = model.phone
-        print("Friend = ", model)
         self.addVisible = false
     }
 }
