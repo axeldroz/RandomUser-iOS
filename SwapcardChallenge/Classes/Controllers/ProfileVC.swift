@@ -20,7 +20,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var timezoneLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var username2Label: UILabel!
+    //@IBOutlet weak var username2Label: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
@@ -72,15 +72,19 @@ class ProfileVC: UIViewController {
                            into: self.imageView)
         }
         self.fullnameLabel.text = viewModel.fullname
-        //self.usernameLabel.text = viewModel.username
+        self.usernameLabel.text = viewModel.username
         self.cityLabel.text = viewModel.city
         self.stateLabel.text = viewModel.state
         self.timezoneLabel.text = viewModel.timezone
         self.genderLabel.text = viewModel.gender
-        self.username2Label.text = viewModel.username
+        //self.username2Label.text = viewModel.username
         self.emailLabel.text = viewModel.email
         self.phoneLabel.text = viewModel.phone
         self.ageLabel.text = viewModel.age
+        self.addButton.isHidden = !viewModel.addVisible
+        /*if (!viewModel.addVisible) {
+            addButton.setTitle("MESSAGE", for: .normal)
+        }*/
     }
     
     /*

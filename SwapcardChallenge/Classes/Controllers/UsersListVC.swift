@@ -232,7 +232,9 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "profileVC", sender: indexPath.row)
+        if (indexPath.section == 0) {
+            self.performSegue(withIdentifier: "profileVC", sender: indexPath.row)
+        }
     }
 }
 

@@ -58,5 +58,9 @@ class Friend : Object {
         self.picture = picture
         self.uuid = uuid
         self.phone = model.phone ?? ""
+        self.city = model.location?.city ?? ""
+        self.state = model.location?.state ?? ""
+        self.timezone = model.location?.timezone?.description ?? ""
+        self.age = (model.dob!.age != nil) ? "\(model.dob!.age!)" : ""
     }
 }

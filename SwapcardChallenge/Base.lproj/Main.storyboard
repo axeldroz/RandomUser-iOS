@@ -262,7 +262,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="U65-e7-VRr">
-                                                        <rect key="frame" x="140" y="48" width="254" height="103"/>
+                                                        <rect key="frame" x="140" y="48" width="254" height="99"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihm-la-2Ny">
                                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="21"/>
@@ -282,11 +282,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timezoneLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-NL-ed2">
-                                                                <rect key="frame" x="0.0" y="82" width="254" height="21"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="fLm-a9-Tax"/>
-                                                                </constraints>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timezoneLabel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phc-NL-ed2">
+                                                                <rect key="frame" x="0.0" y="82" width="254" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -359,7 +356,7 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-TI-SlS">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-TI-SlS">
                                                         <rect key="frame" x="140" y="48" width="254" height="103"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="genderLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxW-KI-tef">
@@ -380,11 +377,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-z2-nAK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="usernameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-z2-nAK">
                                                                 <rect key="frame" x="0.0" y="82" width="254" height="21"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="Sd5-6S-fcU"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -581,7 +575,7 @@
                         <outlet property="scrollView" destination="gnl-vW-JOr" id="2Ha-hD-aop"/>
                         <outlet property="stateLabel" destination="xre-Ns-qZI" id="kGb-nl-DqC"/>
                         <outlet property="timezoneLabel" destination="Phc-NL-ed2" id="0eG-fg-CAt"/>
-                        <outlet property="username2Label" destination="don-z2-nAK" id="70I-7t-hkj"/>
+                        <outlet property="usernameLabel" destination="don-z2-nAK" id="2yz-Gn-bfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKE-uG-rJg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -41,7 +41,7 @@ struct UserProfileViewModel {
     let age : String
     let email : String
     let phone : String
-    
+    let addVisible : Bool
     
     //Depency Injection
     init(model : UserModel) {
@@ -65,6 +65,7 @@ struct UserProfileViewModel {
         self.age = (model.dob?.age != nil) ? "\(model.dob!.age!)" : ""
         self.email = model.email ?? ""
         self.phone = model.phone ?? ""
+        self.addVisible = true
     }
     
     // DI from local db
@@ -77,7 +78,9 @@ struct UserProfileViewModel {
         self.timezone = model.timezone
         self.gender = model.gender
         self.age = model.age
-        self.email = model.email ?? ""
-        self.phone = model.phone ?? ""
+        self.email = model.email
+        self.phone = model.phone
+        print("Friend = ", model)
+        self.addVisible = false
     }
 }

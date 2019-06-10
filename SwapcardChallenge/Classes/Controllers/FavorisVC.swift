@@ -57,15 +57,20 @@ class FavorisVC: UIViewController {
         self.refreshControl.endRefreshing()
     }*/
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileVC" {
+            if let vc = segue.destination as? ProfileVC {
+                if let index = sender as? Int {
+                    let model = self.models[index]
+                    let viewModel = UserProfileViewModel(model: model)
+                    vc.viewModel = viewModel
+                } else {
+                    print("Error while giving the viewModel to the ProfileVC ViewController")
+                }
+            }
+        }
+    }
     
 }
 
@@ -117,6 +122,12 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.section == 0) {
+            self.performSegue(withIdentifier: "profileVC", sender: indexPath.row)
+        }
     }
 }
 
