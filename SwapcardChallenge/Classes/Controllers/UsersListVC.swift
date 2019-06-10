@@ -35,7 +35,12 @@ class UsersListVC: UIViewController {
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.fetchUsers()
+        self.fetchUsers(success : nil, error : { code, body in
+            let alertVC = UIAlertController(title: "Error", message: "Connection with server failed", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            }))
+            self.present(alertVC, animated: true, completion: nil)
+        })
     }
     
     func reload() {
@@ -63,7 +68,13 @@ class UsersListVC: UIViewController {
     @objc func refresh (_ refreshControl: UIRefreshControl) {
         fetchUsers(success: { models in
             self.refreshControl.endRefreshing()
-        }, error: { _,_ in })
+        }, error: { code, body in
+            let alertVC = UIAlertController(title: "Error", message: "Connection with server failed", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            }))
+            self.present(alertVC, animated: true, completion: nil)
+            self.refreshControl.endRefreshing()
+        })
     }
     
     func addFriendToLocalDB(userModel: UserModel) {
@@ -124,12 +135,14 @@ class UsersListVC: UIViewController {
     
     func fetchMore() {
         fetchingMore = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.fetchUsers(false, success: { newItems in
                 self.models.append(contentsOf: newItems)
                 self.reload()
                 self.fetchingMore = false
-            }, error: { _,_ in })
+            }, error: { _,_ in
+                self.fetchingMore = false
+            })
         }
     }
 

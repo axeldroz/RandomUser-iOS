@@ -40,8 +40,6 @@ class ApiService {
                     } catch let jsonError {
                         print("Failed to decode: ", jsonError)
                     }
-                    
-                    
                 case .failure(let errorResponse):
                     let body = String(data: response.data!, encoding: String.Encoding.utf8) ?? ""
                     print("Error: \(body)")
