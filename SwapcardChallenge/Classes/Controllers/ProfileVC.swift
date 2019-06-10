@@ -20,16 +20,16 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var timezoneLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    //@IBOutlet weak var username2Label: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
     var viewModel : UserProfileViewModel? {
         didSet {
-            //self.setLayoutText(viewModel: viewModel!)
         }
     }
+    var usersListVC : UsersListVC?
+    var index : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +41,7 @@ class ProfileVC: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textAlignment = .center
         navigationItem.titleView = titleLabel
-        //UIHelper.loadNavigationBarStyle(self.navigationController!)
         UIHelper.loadNavigationBarStyle(self.navigationController!)
-        //UIHelper.loadNavigationBarStyle(self.navigationController!)
         self.view.backgroundColor = gray
         self.scrollView.backgroundColor = gray
         self.addButton.setTitleColor(UIHelper.Color.greenSwapcard, for: .normal)
@@ -77,25 +75,17 @@ class ProfileVC: UIViewController {
         self.stateLabel.text = viewModel.state
         self.timezoneLabel.text = viewModel.timezone
         self.genderLabel.text = viewModel.gender
-        //self.username2Label.text = viewModel.username
         self.emailLabel.text = viewModel.email
         self.phoneLabel.text = viewModel.phone
         self.ageLabel.text = viewModel.age
         self.addButton.isHidden = !viewModel.addVisible
-        /*if (!viewModel.addVisible) {
-            addButton.setTitle("MESSAGE", for: .normal)
-        }*/
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func addPressed(_ sender: Any) {
+        if let index = index {
+            self.usersListVC?.addFriendToLocalDB(index: index)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 

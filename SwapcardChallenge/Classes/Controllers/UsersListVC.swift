@@ -38,12 +38,6 @@ class UsersListVC: UIViewController {
         self.fetchUsers()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // uncomment this line if you want the suggested users reload each time you go back to the view
-        //fetchUsers()
-    }
-    
     func reload() {
         self.tableView.reloadData()
     }
@@ -72,34 +66,35 @@ class UsersListVC: UIViewController {
         }, error: { _,_ in })
     }
     
-    func addFriendToLocalDB(id: Int, userModel: UserModel, username: String) {
+    func addFriendToLocalDB(userModel: UserModel) {
         let friend = Friend()
-        //let picture = Picture()
-        guard let uuid = userModel.login?.uuid else {
-            print ("user with the same uuid has already been added")
-            return
-        }
-        /*friend.firstname = userModel.name?.first ?? "unknown"
-        friend.lastname = userModel.name?.last ?? "unknown"
-        friend.email = userModel.email ?? "unknown"
-        friend.username = username
-        friend.id = id
-        friend.title = userModel.name?.title ?? "unknown"
-        friend.gender = userModel.gender ?? "unknown"
-        picture.id = friend.id
-        picture.thumbail = userModel.picture?.thumbail ?? ""
-        picture.medium = userModel.picture?.medium ?? ""
-        picture.large = userModel.picture?.large ?? ""
-        friend.picture = picture
-        friend.uuid = uuid
-        friend.phone = userModel.phone*/
+        let friends = defRealm.objects(Friend.self)
         
-        friend.fromModel(model: userModel, id: id)
-        
+        friend.fromModel(model: userModel, id: friends.count)
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
             })
+        } catch (let e) {
+            print("Realm exception : ", e.localizedDescription)
+        }
+    }
+    
+    /*
+     * Called from ProfileVC
+     */
+    func addFriendToLocalDB(index: Int) {
+        let friend = Friend()
+        let friends = defRealm.objects(Friend.self)
+        let userModel = self.models[index]
+        
+        friend.fromModel(model: userModel, id: friends.count)
+        do {
+            try defRealm.write({ () -> Void in
+                defRealm.add(friend)
+            })
+            let cell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! UsersListCell
+            cell.accessoryView?.isHidden = true
         } catch (let e) {
             print("Realm exception : ", e.localizedDescription)
         }
@@ -123,9 +118,6 @@ class UsersListVC: UIViewController {
         fetchingMore = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             self.fetchUsers(false, success: { newItems in
-                /*for item in newItems {
-                    self.models.append(item)
-                }*/
                 self.models.append(contentsOf: newItems)
                 self.reload()
                 self.fetchingMore = false
@@ -133,14 +125,17 @@ class UsersListVC: UIViewController {
         }
     }
 
-    // MARK: - Navigation
+    // Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileVC" {
             if let vc = segue.destination as? ProfileVC {
                 if let index = sender as? Int {
                     let model = self.models[index]
-                    let viewModel = UserProfileViewModel(model: model)
+                    let exists = self.userExists(username: model.login?.username ?? "")
+                    let viewModel = UserProfileViewModel(model: model, exists: exists)
                     vc.viewModel = viewModel
+                    vc.usersListVC = self
+                    vc.index = index
                 } else {
                     print("Error while giving the viewModel to the ProfileVC ViewController")
                 }
@@ -193,7 +188,6 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func addTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
-        let friends = defRealm.objects(Friend.self)
         
         guard let index = view?.tag else {
             print("Error guard index")
@@ -206,7 +200,7 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
         }
         view?.isHidden = true
         if (!userExists(username: username)) {
-            self.addFriendToLocalDB(id: friends.count, userModel: userModel, username: username)
+            self.addFriendToLocalDB(userModel: userModel)
         } else {
             print ("user already exists")
         }
