@@ -74,12 +74,12 @@ class UsersListVC: UIViewController {
     
     func addFriendToLocalDB(id: Int, userModel: UserModel, username: String) {
         let friend = Friend()
-        let picture = Picture()
+        //let picture = Picture()
         guard let uuid = userModel.login?.uuid else {
             print ("user with the same uuid has already been added")
             return
         }
-        friend.firstname = userModel.name?.first ?? "unknown"
+        /*friend.firstname = userModel.name?.first ?? "unknown"
         friend.lastname = userModel.name?.last ?? "unknown"
         friend.email = userModel.email ?? "unknown"
         friend.username = username
@@ -92,6 +92,10 @@ class UsersListVC: UIViewController {
         picture.large = userModel.picture?.large ?? ""
         friend.picture = picture
         friend.uuid = uuid
+        friend.phone = userModel.phone*/
+        
+        friend.fromModel(model: userModel, id: id)
+        
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
@@ -129,15 +133,20 @@ class UsersListVC: UIViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "profileVC" {
+            if let vc = segue.destination as? ProfileVC {
+                if let index = sender as? Int {
+                    let model = self.models[index]
+                    let viewModel = UserProfileViewModel(model: model)
+                    vc.viewModel = viewModel
+                } else {
+                    print("Error while giving the viewModel to the ProfileVC ViewController")
+                }
+            }
+        }
     }
-    */
 
 }
 
@@ -160,7 +169,7 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
             let model = self.models[indexPath.row]
-            let viewModel = UserViewModel(model: model)
+            let viewModel = UserCellViewModel(model: model)
             let image = UIImage(named: "ic-add")
             let addImageView = UIImageView(image: image)
             let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
@@ -223,7 +232,7 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "profileVC", sender: nil)
+        self.performSegue(withIdentifier: "profileVC", sender: indexPath.row)
     }
 }
 

@@ -15,7 +15,7 @@ class UsersListCell: UITableViewCell {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    var viewModel : UserViewModel? {
+    var viewModel : UserCellViewModel? {
         didSet {
             if let path = viewModel?.imagePath {
                 Nuke.loadImage(with: getURLFromPath(path),
@@ -38,10 +38,10 @@ class UsersListCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.initImageLayou()
+        self.initImageLayout()
     }
     
-    func initImageLayou() {
+    func initImageLayout() {
         imageProfileView.layer.borderWidth = 1.0
         imageProfileView.layer.masksToBounds = false
         imageProfileView.layer.borderColor = UIHelper.Color.whiteColor.cgColor

@@ -23,9 +23,10 @@
 		2E702B4F2287999800B04D20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E702B4D2287999800B04D20 /* LaunchScreen.storyboard */; };
 		2E702B5A2287999800B04D20 /* SwapcardChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */; };
 		2E7CAA4522A79B1C0011A314 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAA4422A79B1B0011A314 /* LoadingCell.swift */; };
+		2E943CEB22ADC6D100356D7C /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E943CEA22ADC6D100356D7C /* UserProfileViewModel.swift */; };
 		2EBB212A229E83C500D912F7 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB2129229E83C500D912F7 /* Friend.swift */; };
 		2EBB212C229E84FF00D912F7 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB212B229E84FF00D912F7 /* Picture.swift */; };
-		2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8822895BC900CE97CA /* UserViewModel.swift */; };
+		2EFF6D8922895BC900CE97CA /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8822895BC900CE97CA /* UserCellViewModel.swift */; };
 		2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8A22895C5900CE97CA /* UserModel.swift */; };
 		2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF6D8C22895FAE00CE97CA /* ApiService.swift */; };
 		B5AC9D81EC7C4A706F3CC8C1 /* Pods_SwapcardChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A591D5D4C47AE7769EFDD84B /* Pods_SwapcardChallengeTests.framework */; };
@@ -63,9 +64,10 @@
 		2E702B592287999800B04D20 /* SwapcardChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapcardChallengeTests.swift; sourceTree = "<group>"; };
 		2E702B5B2287999800B04D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E7CAA4422A79B1B0011A314 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		2E943CEA22ADC6D100356D7C /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		2EBB2129229E83C500D912F7 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2EBB212B229E84FF00D912F7 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
-		2EFF6D8822895BC900CE97CA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		2EFF6D8822895BC900CE97CA /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		2EFF6D8A22895C5900CE97CA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2EFF6D8C22895FAE00CE97CA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		306611F719DBFF7B08B90F55 /* Pods-SwapcardChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwapcardChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwapcardChallengeTests/Pods-SwapcardChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -220,7 +222,8 @@
 		2EFF6D8122894B2200CE97CA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2EFF6D8822895BC900CE97CA /* UserViewModel.swift */,
+				2EFF6D8822895BC900CE97CA /* UserCellViewModel.swift */,
+				2E943CEA22ADC6D100356D7C /* UserProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -417,10 +420,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E197B5622ACD0A2001ACFBB /* ProfileVC.swift in Sources */,
+				2E943CEB22ADC6D100356D7C /* UserProfileViewModel.swift in Sources */,
 				2EFF6D8D22895FAE00CE97CA /* ApiService.swift in Sources */,
 				2E702B4A2287999700B04D20 /* SwapcardChallenge.xcdatamodeld in Sources */,
 				2EBB212A229E83C500D912F7 /* Friend.swift in Sources */,
-				2EFF6D8922895BC900CE97CA /* UserViewModel.swift in Sources */,
+				2EFF6D8922895BC900CE97CA /* UserCellViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
 				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,
 				2E112A4C22ACCE2500FCECAB /* ViewController.swift in Sources */,

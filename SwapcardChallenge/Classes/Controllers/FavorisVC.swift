@@ -77,7 +77,7 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
-        let viewModel = UserViewModel(model: self.models[indexPath.row])
+        let viewModel = UserCellViewModel(model: self.models[indexPath.row])
         let image = UIImage(named: "ic-trash")
         let addImageView = UIImageView(image: image)
         let tap = UITapGestureRecognizer(target: self, action: #selector(removeTapped))

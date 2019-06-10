@@ -45,4 +45,9 @@ class UIHelper {
         navigationController.navigationBar.isOpaque = true
         navigationController.navigationBar.barTintColor = Color.whiteColor
     }
+    
+    class func getURLFromPath(_ path: String) -> URL {
+        let imgPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        return URL.init(string: imgPath)!
+    }
 }
