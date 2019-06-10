@@ -11,23 +11,6 @@ import Foundation
 /*
  * UserProfileViewModel is used for profile view
  *
- * imagePath : String?
- * fullname : String?
- * email : String?
- *
- */
-
-/*
- @IBOutlet weak var fullnameLabel: UILabel!
- @IBOutlet weak var usernameLabel: UILabel!
- @IBOutlet weak var cityLabel: UILabel!
- @IBOutlet weak var countryLabel: UILabel!
- @IBOutlet weak var timezoneLabel: UILabel!
- @IBOutlet weak var genderLabel: UILabel!
- @IBOutlet weak var ageLabel: UILabel!
- @IBOutlet weak var username2Label: UILabel!
- @IBOutlet weak var emailLabel: UILabel!
- @IBOutlet weak var phoneLabel: UILabel!
  */
 
 struct UserProfileViewModel {

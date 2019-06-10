@@ -69,8 +69,12 @@ class UsersListVC: UIViewController {
     func addFriendToLocalDB(userModel: UserModel) {
         let friend = Friend()
         let friends = defRealm.objects(Friend.self)
+        let pictures = defRealm.objects(Picture.self)
         
-        friend.fromModel(model: userModel, id: friends.count)
+        let id = (friends.last != nil) ? friends.last!.id + 1 : 0
+        let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
+        friend.fromModel(model: userModel, id: id,
+                         pictureId: pictureId)
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
@@ -86,9 +90,13 @@ class UsersListVC: UIViewController {
     func addFriendToLocalDB(index: Int) {
         let friend = Friend()
         let friends = defRealm.objects(Friend.self)
+        let pictures = defRealm.objects(Picture.self)
         let userModel = self.models[index]
         
-        friend.fromModel(model: userModel, id: friends.count)
+        let id = (friends.last != nil) ? friends.last!.id + 1 : 0
+        let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
+        friend.fromModel(model: userModel, id: id,
+                         pictureId: pictureId)
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
@@ -167,12 +175,12 @@ extension UsersListVC : UITableViewDelegate, UITableViewDataSource {
             let viewModel = UserCellViewModel(model: model)
             let image = UIImage(named: "ic-add")
             let addImageView = UIImageView(image: image)
+            addImageView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
             let tap = UITapGestureRecognizer(target: self, action: #selector(addTapped))
             addImageView.isUserInteractionEnabled = true
             addImageView.addGestureRecognizer(tap)
             addImageView.tag = indexPath.row
             cell.accessoryView = addImageView
-        
             if (self.userExists(username: model.login?.username ?? "")) {
                 addImageView.isHidden = true
             }

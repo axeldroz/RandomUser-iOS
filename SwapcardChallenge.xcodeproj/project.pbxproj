@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E112A4C22ACCE2500FCECAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E112A4722ACCE2500FCECAB /* ViewController.swift */; };
 		2E112A4D22ACCE2500FCECAB /* UsersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E112A4822ACCE2500FCECAB /* UsersListVC.swift */; };
 		2E112A4E22ACCE2500FCECAB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E112A4922ACCE2500FCECAB /* MainTabBarController.swift */; };
 		2E112A4F22ACCE2500FCECAB /* FavorisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E112A4A22ACCE2500FCECAB /* FavorisVC.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E112A4722ACCE2500FCECAB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2E112A4822ACCE2500FCECAB /* UsersListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListVC.swift; sourceTree = "<group>"; };
 		2E112A4922ACCE2500FCECAB /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2E112A4A22ACCE2500FCECAB /* FavorisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorisVC.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		2E112A4522ACCE2500FCECAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E112A4722ACCE2500FCECAB /* ViewController.swift */,
 				2E112A4822ACCE2500FCECAB /* UsersListVC.swift */,
 				2E112A4922ACCE2500FCECAB /* MainTabBarController.swift */,
 				2E112A4A22ACCE2500FCECAB /* FavorisVC.swift */,
@@ -198,7 +195,6 @@
 				2E112A4522ACCE2500FCECAB /* Controllers */,
 				2EFF6D7F22894B1400CE97CA /* Models */,
 				2EFF6D8122894B2200CE97CA /* ViewModels */,
-				2EFF6D8022894B1A00CE97CA /* Views */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -210,13 +206,6 @@
 				2EFF6D8A22895C5900CE97CA /* UserModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2EFF6D8022894B1A00CE97CA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		2EFF6D8122894B2200CE97CA /* ViewModels */ = {
@@ -427,7 +416,6 @@
 				2EFF6D8922895BC900CE97CA /* UserCellViewModel.swift in Sources */,
 				2EFF6D8B22895C5900CE97CA /* UserModel.swift in Sources */,
 				2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */,
-				2E112A4C22ACCE2500FCECAB /* ViewController.swift in Sources */,
 				2E7CAA4522A79B1C0011A314 /* LoadingCell.swift in Sources */,
 				2E112A5122ACCEC800FCECAB /* UIHelper.swift in Sources */,
 				2E112A4F22ACCE2500FCECAB /* FavorisVC.swift in Sources */,

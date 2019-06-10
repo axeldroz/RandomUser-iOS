@@ -14,12 +14,6 @@ class FavorisVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var models : Results<Friend>!
     
-    /*lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: UIControl.Event.valueChanged)
-        return refreshControl
-    }()*/
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem?.tintColor = UIHelper.Color.whiteColor
@@ -40,7 +34,6 @@ class FavorisVC: UIViewController {
         super.viewWillAppear(animated)
         getFavoris()
         reload()
-        //apiService.fetchUsers2(vc: self)
     }
     
     private func getFavoris() {
@@ -51,13 +44,7 @@ class FavorisVC: UIViewController {
         self.tableView.reloadData()
     }
     
-    /*@objc func refresh (_ refreshControl: UIRefreshControl) {
-        getFavoris()
-        reload()
-        self.refreshControl.endRefreshing()
-    }*/
-    
-    // MARK: - Navigation
+    // Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileVC" {
             if let vc = segue.destination as? ProfileVC {
@@ -84,12 +71,13 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! UsersListCell
         let viewModel = UserCellViewModel(model: self.models[indexPath.row])
         let image = UIImage(named: "ic-trash")
-        let addImageView = UIImageView(image: image)
+        let removeImageView = UIImageView(image: image)
+        removeImageView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         let tap = UITapGestureRecognizer(target: self, action: #selector(removeTapped))
-        addImageView.isUserInteractionEnabled = true
-        addImageView.addGestureRecognizer(tap)
-        addImageView.tag = indexPath.row
-        cell.accessoryView = addImageView
+        removeImageView.isUserInteractionEnabled = true
+        removeImageView.addGestureRecognizer(tap)
+        removeImageView.tag = indexPath.row
+        cell.accessoryView = removeImageView
         cell.viewModel = viewModel
         cell.backgroundColor = .clear
         return cell as UITableViewCell
@@ -98,7 +86,6 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
     @objc func removeTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let view = tapGestureRecognizer.view as? UIImageView
         view?.isHidden = true
-        // add to db local
         guard let index = view?.tag else {
             print("Error guard index")
             return

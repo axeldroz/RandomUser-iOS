@@ -2,7 +2,7 @@
 //  ProfileVC.swift
 //  SwapcardChallenge
 //
-//  Created by Axel Droz on 05/06/2019.
+//  Created by Axel Drozdzynski on 05/06/2019.
 //  Copyright © 2019 Axel Droz. All rights reserved.
 //
 
