@@ -2,8 +2,8 @@
 //  UserProfileViewModel.swift
 //  SwapcardChallenge
 //
-//  Created by Axel Droz on 09/06/2019.
-//  Copyright © 2019 Axel Droz. All rights reserved.
+//  Created by Axel Drozdzynski on 09/06/2019.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
 import Foundation
@@ -27,31 +27,7 @@ struct UserProfileViewModel {
     let addVisible : Bool
     
     //Depency Injection
-    init(model : UserModel) {
-        self.imagePath = model.picture?.large ?? model.picture?.medium ?? model.picture?.thumbail ?? ""
-        if (model.name?.first == nil && model.name?.last != nil) {
-            self.fullname = model.name!.last!
-        } else if (model.name?.first != nil && model.name?.last == nil) {
-            self.fullname = model.name!.first!
-        } else {
-            if (model.name?.first == nil && model.name?.last == nil) {
-                self.fullname = model.login?.username ?? "unknown"
-            } else {
-                self.fullname = model.name!.first! + " " + model.name!.last!
-            }
-        }
-        self.username = "@" + (model.login?.username ?? "")
-        self.city = model.location?.city ?? ""
-        self.state = model.location?.state ?? ""
-        self.timezone = model.location?.timezone?.description ?? ""
-        self.gender = model.gender ?? ""
-        self.age = (model.dob?.age != nil) ? "\(model.dob!.age!)" : ""
-        self.email = model.email ?? ""
-        self.phone = model.phone ?? ""
-        self.addVisible = true
-    }
-    
-    init(model : UserModel, exists: Bool) {
+    init(model : UserModel, exists: Bool = true) {
         self.imagePath = model.picture?.large ?? model.picture?.medium ?? model.picture?.thumbail ?? ""
         if (model.name?.first == nil && model.name?.last != nil) {
             self.fullname = model.name!.last!

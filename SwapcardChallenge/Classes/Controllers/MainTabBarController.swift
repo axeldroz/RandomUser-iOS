@@ -3,7 +3,7 @@
 //  SwapcardChallenge
 //
 //  Created by Axel Drozdzynski on 12/05/2019.
-//  Copyright © 2019 Axel Droz. All rights reserved.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
 import Foundation
@@ -42,7 +42,6 @@ class MainTabBarController: UITabBarController {
         tab2.tabBarItem.image?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         tab2.tabBarItem.selectedImage = UIImage(named: "ic favori")
         tab2.tabBarItem.selectedImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        
         self.viewControllers = [tab1, tab2]
     }
     

@@ -3,6 +3,7 @@
 //  
 //
 //  Created by Axel Drozdzynski on 22/05/2019.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +12,6 @@ import Nuke
 class UsersListCell: UITableViewCell {
     
     @IBOutlet weak var imageProfileView: UIImageView!
-
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -26,14 +26,6 @@ class UsersListCell: UITableViewCell {
                 emailLabel.text = vm.email
             }
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     override func layoutSubviews() {

@@ -35,11 +35,11 @@ class UsersListVC: UIViewController {
         self.tableView.backgroundColor = .clear
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.fetchUsers(success : nil, error : { code, body in
+        self.fetchUsers(success : nil, error : { [weak self] code, body in
             let alertVC = UIAlertController(title: "Error", message: "Connection with server failed", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             }))
-            self.present(alertVC, animated: true, completion: nil)
+            self?.present(alertVC, animated: true, completion: nil)
         })
     }
     
@@ -48,32 +48,28 @@ class UsersListVC: UIViewController {
     }
     
     func fetchUsers(_ reload: Bool = true, success: (([UserModel]) -> Void)? = nil, error: ((Int, String) -> Void)? = nil) {
-        apiService.fetchUsers(number: 10, page: 1, success: { models in
+        apiService.fetchUsers(number: 10, page: 1, success: { [weak self] models in
             if (reload) {
-                self.models = models
-                if self.models.count > 0 {
-                    self.reload()
+                self?.models = models
+                if ((self?.models.count ?? 0) > 0) {
+                    self?.reload()
                 }
             }
-            if let cb = success {
-                cb(models)
-            }
+            success?(models)
         }, error : { code, body in
-            if let cb = error {
-                cb(code, body)
-            }
+            error?(code, body)
         })
     }
     
     @objc func refresh (_ refreshControl: UIRefreshControl) {
-        fetchUsers(success: { models in
-            self.refreshControl.endRefreshing()
-        }, error: { code, body in
+        fetchUsers(success: { [weak self] models in
+            self?.refreshControl.endRefreshing()
+        }, error: { [weak self] code, body in
             let alertVC = UIAlertController(title: "Error", message: "Connection with server failed", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             }))
-            self.present(alertVC, animated: true, completion: nil)
-            self.refreshControl.endRefreshing()
+            self?.present(alertVC, animated: true, completion: nil)
+            self?.refreshControl.endRefreshing()
         })
     }
     
@@ -135,13 +131,13 @@ class UsersListVC: UIViewController {
     
     func fetchMore() {
         fetchingMore = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.fetchUsers(false, success: { newItems in
-                self.models.append(contentsOf: newItems)
-                self.reload()
-                self.fetchingMore = false
-            }, error: { _,_ in
-                self.fetchingMore = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.fetchUsers(false, success: { [weak self] newItems in
+                self?.models.append(contentsOf: newItems)
+                self?.reload()
+                self?.fetchingMore = false
+            }, error: { [weak self] _,_ in
+                self?.fetchingMore = false
             })
         }
     }

@@ -3,7 +3,7 @@
 //  SwapcardChallenge
 //
 //  Created by Axel Drozdzynski on 13/05/2019.
-//  Copyright © 2019 Axel Droz. All rights reserved.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
 import Foundation

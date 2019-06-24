@@ -28,7 +28,7 @@ class ProfileVC: UIViewController {
         didSet {
         }
     }
-    var usersListVC : UsersListVC?
+    weak var usersListVC : UsersListVC?
     var index : Int?
     
     override func viewDidLoad() {

@@ -2,7 +2,7 @@
 //  apiService.swift
 //  SwapcardChallenge
 //
-//  Created by Axel Droz on 13/05/2019.
+//  Created by Axel Drozdzynski on 13/05/2019.
 //  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
@@ -33,9 +33,7 @@ class ApiService {
                         decoder.keyDecodingStrategy = .convertFromSnakeCase
                         let root = try decoder.decode(Root.self, from : jsonData as Data)
                         if let models = root.results {
-                            if let cb = success {
-                                cb(models)
-                            }
+                            success?(models)
                         }
                     } catch let jsonError {
                         print("Failed to decode: ", jsonError)
@@ -43,10 +41,7 @@ class ApiService {
                 case .failure(let errorResponse):
                     let body = String(data: response.data!, encoding: String.Encoding.utf8) ?? ""
                     print("Error: \(body)")
-                    
-                    if let cb = error {
-                        cb(errorResponse._code, body)
-                    }
+                    error?(errorResponse._code, body)
                 }
         }
     }    

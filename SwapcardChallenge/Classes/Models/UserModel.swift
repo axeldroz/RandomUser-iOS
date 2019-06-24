@@ -2,32 +2,9 @@
 //  UserModel.swift
 //  SwapcardChallenge
 //
-//  Created by Axel Droz on 13/05/2019.
-//  Copyright © 2019 Axel Droz. All rights reserved.
+//  Created by Axel Drozdzynski on 13/05/2019.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
-
-/*
- "location": {
- "street": "2711 calle mota",
- "city": "burgos",
- "state": "galicia",
- "postcode": 69633,
- "coordinates": {
- "latitude": "-24.9297",
- "longitude": "161.1145"
- },
- "timezone": {
- "offset": "-11:00",
- "description": "Midway Island, Samoa"
- }
- 
- "dob": {
- "date": "1952-01-22T11:30:00Z",
- "age": 67
- },
- 
- 
- }*/
 
 import Foundation
 

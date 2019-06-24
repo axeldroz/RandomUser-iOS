@@ -3,13 +3,13 @@
 //  
 //
 //  Created by Axel Drozdzynski on 26/05/2019.
+//  Copyright © 2019 Axel Drozdzynski. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
 class FavorisVC: UIViewController {
-    
     
     @IBOutlet weak var tableView: UITableView!
     var models : Results<Friend>!
@@ -91,7 +91,6 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
             return
         }
         let friend = self.models[index]
-        pr
         do {
             try defRealm.write {
                 if let pic = friend.picture {
@@ -116,5 +115,3 @@ extension FavorisVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-
