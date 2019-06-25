@@ -75,7 +75,6 @@ class UsersListVC: UIViewController {
     
     func addFriendToLocalDB(userModel: UserModel) {
         let friend = Friend()
-        let friends = defRealm.objects(Friend.self)
         let pictures = defRealm.objects(Picture.self)
         
         let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
