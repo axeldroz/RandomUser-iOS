@@ -30,5 +30,21 @@ class SwapcardChallengeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    /*
+     * Test fetch users into view model
+     */
+    func testUserViewModelAfterFetching() {
+        let api = ApiService.shared
+        api.fetchUsers(number: 10, page: 1, success: { userModels in
+            XCTAssertEqual(userModels.count, 10)
+            XCTAssertNotNil(userModels[0])
+        })
+    }
+    
+    /*
+     * Test adding in db local
+     */
+    
+    
 }

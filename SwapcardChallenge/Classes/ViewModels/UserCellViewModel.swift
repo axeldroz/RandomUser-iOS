@@ -25,8 +25,8 @@ struct UserCellViewModel {
     //Depency Injection
     init(model : UserModel) {
         self.imagePath = model.picture?.medium ?? ""
-        self.fullName = (model.name?.first ?? "Unknown") + " " + (model.name?.last ?? "Unkwown")
-        self.email = model.email ?? "unkwnown"
+        self.fullName = (model.name?.first ?? "unknown") + " " + (model.name?.last ?? "unknown")
+        self.email = model.email ?? "unknown"
     }
     
     // DI from local db
