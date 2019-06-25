@@ -14,6 +14,7 @@ class UsersListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var models = [UserModel]()
     var fetchingMore = false
+    let apiService = ApiService.shared
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()

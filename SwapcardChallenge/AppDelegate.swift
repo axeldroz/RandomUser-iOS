@@ -11,7 +11,6 @@ import CoreData
 import RealmSwift
 
 let serverUrl = "https://randomuser.me"
-let apiService = ApiService()
 
 var defRealm:Realm = {
     return try! Realm()

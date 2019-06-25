@@ -11,6 +11,9 @@ import SwiftyJSON
 import Alamofire
 
 class ApiService {
+    
+    static let shared = ApiService()
+    
     func fetchUsers(number: Int, page: Int, success: (([UserModel]) -> Void)? = nil, error: ((Int, String) -> Void)? = nil) {
         
         let params = [
