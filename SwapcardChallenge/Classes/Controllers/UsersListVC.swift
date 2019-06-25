@@ -78,10 +78,8 @@ class UsersListVC: UIViewController {
         let friends = defRealm.objects(Friend.self)
         let pictures = defRealm.objects(Picture.self)
         
-        let id = (friends.last != nil) ? friends.last!.id + 1 : 0
         let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
-        friend.fromModel(model: userModel, id: id,
-                         pictureId: pictureId)
+        friend.fromModel(model: userModel, pictureId: pictureId)
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)
@@ -96,14 +94,11 @@ class UsersListVC: UIViewController {
      */
     func addFriendToLocalDB(index: Int) {
         let friend = Friend()
-        let friends = defRealm.objects(Friend.self)
         let pictures = defRealm.objects(Picture.self)
         let userModel = self.models[index]
         
-        let id = (friends.last != nil) ? friends.last!.id + 1 : 0
         let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
-        friend.fromModel(model: userModel, id: id,
-                         pictureId: pictureId)
+        friend.fromModel(model: userModel, pictureId: pictureId)
         do {
             try defRealm.write({ () -> Void in
                 defRealm.add(friend)

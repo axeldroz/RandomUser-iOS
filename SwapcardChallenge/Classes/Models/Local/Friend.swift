@@ -9,7 +9,6 @@
 import RealmSwift
 
 class Friend : Object {
-    @objc dynamic var id : Int = 0
     @objc dynamic var uuid : String = ""
     @objc dynamic var username : String = ""
     @objc dynamic var gender : String = ""
@@ -28,7 +27,7 @@ class Friend : Object {
         return "uuid"
     }
     
-    func fromModel (model: UserModel, id: Int, pictureId: Int) {
+    func fromModel (model: UserModel, pictureId: Int) {
         let picture = Picture()
         guard let uuid = model.login?.uuid else {
             print ("user with the same uuid has already been added")
@@ -38,7 +37,6 @@ class Friend : Object {
         self.lastname = model.name?.last ?? "unknown"
         self.email = model.email ?? "unknown"
         self.username = model.login?.username ?? ""
-        self.id = id
         self.title = model.name?.title ?? "unknown"
         self.gender = model.gender ?? "unknown"
         picture.id = pictureId
