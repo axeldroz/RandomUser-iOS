@@ -10,7 +10,7 @@ import XCTest
 import Realm
 @testable import RandomUser_iOS
 
-class SwapcardChallengeTests: XCTestCase {
+class RandomUser_iOSTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

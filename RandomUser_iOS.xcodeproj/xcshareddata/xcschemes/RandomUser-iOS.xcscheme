@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E702B3D2287999700B04D20"
-               BuildableName = "RandomUser-iOS.app"
-               BlueprintName = "RandomUser-iOS"
-               ReferencedContainer = "container:RandomUser-iOS.xcodeproj">
+               BuildableName = "RandomUser_iOS.app"
+               BlueprintName = "RandomUser_iOS"
+               ReferencedContainer = "container:RandomUser_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E702B542287999800B04D20"
-               BuildableName = "RandomUser-iOSTests.xctest"
-               BlueprintName = "RandomUser-iOSTests"
-               ReferencedContainer = "container:RandomUser-iOS.xcodeproj">
+               BuildableName = "RandomUser_iOSTests.xctest"
+               BlueprintName = "RandomUser_iOSTests"
+               ReferencedContainer = "container:RandomUser_iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E702B3D2287999700B04D20"
-            BuildableName = "RandomUser-iOS.app"
-            BlueprintName = "RandomUser-iOS"
-            ReferencedContainer = "container:RandomUser-iOS.xcodeproj">
+            BuildableName = "RandomUser_iOS.app"
+            BlueprintName = "RandomUser_iOS"
+            ReferencedContainer = "container:RandomUser_iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E702B3D2287999700B04D20"
-            BuildableName = "RandomUser-iOS.app"
-            BlueprintName = "RandomUser-iOS"
-            ReferencedContainer = "container:RandomUser-iOS.xcodeproj">
+            BuildableName = "RandomUser_iOS.app"
+            BlueprintName = "RandomUser_iOS"
+            ReferencedContainer = "container:RandomUser_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E702B3D2287999700B04D20"
-            BuildableName = "RandomUser-iOS.app"
-            BlueprintName = "RandomUser-iOS"
-            ReferencedContainer = "container:RandomUser-iOS.xcodeproj">
+            BuildableName = "RandomUser_iOS.app"
+            BlueprintName = "RandomUser_iOS"
+            ReferencedContainer = "container:RandomUser_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

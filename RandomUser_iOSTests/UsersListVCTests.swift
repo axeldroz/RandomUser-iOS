@@ -42,7 +42,7 @@ class UsersListVCTests: XCTestCase {
     
     func testAddFriend() {
         vc.models = [self.userModel]
-        vc.addFriendToLocalDB(index: 0)
+        vc.addFriendToLocalDB(index: 0, completion: nil)
         
     }
 

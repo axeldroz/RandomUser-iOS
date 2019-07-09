@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SwapcardChallengeVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SwapcardChallengeVersionString[];
+FOUNDATION_EXPORT double Pods_RandomUser_iOSTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_RandomUser_iOSTestsVersionString[];
 
