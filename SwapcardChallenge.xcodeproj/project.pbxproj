@@ -14,6 +14,7 @@
 		2E197B5622ACD0A2001ACFBB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E197B5522ACD0A1001ACFBB /* ProfileVC.swift */; };
 		2E3FFBAB22C2E04000B6D0A0 /* UserCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FFBAA22C2E04000B6D0A0 /* UserCellViewModelTests.swift */; };
 		2E3FFBAD22C2E0DA00B6D0A0 /* UserProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FFBAC22C2E0DA00B6D0A0 /* UserProfileViewModelTests.swift */; };
+		2E3FFBAF22C2EA9D00B6D0A0 /* UsersListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FFBAE22C2EA9D00B6D0A0 /* UsersListVCTests.swift */; };
 		2E42219622A0F50B0017EA84 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42219522A0F50B0017EA84 /* Realm.framework */; };
 		2E42219822A0F50B0017EA84 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42219722A0F50B0017EA84 /* RealmSwift.framework */; };
 		2E68BD0122952BD4003F4049 /* UsersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68BD0022952BD4003F4049 /* UsersListCell.swift */; };
@@ -52,6 +53,7 @@
 		2E197B5522ACD0A1001ACFBB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		2E3FFBAA22C2E04000B6D0A0 /* UserCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModelTests.swift; sourceTree = "<group>"; };
 		2E3FFBAC22C2E0DA00B6D0A0 /* UserProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModelTests.swift; sourceTree = "<group>"; };
+		2E3FFBAE22C2EA9D00B6D0A0 /* UsersListVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListVCTests.swift; sourceTree = "<group>"; };
 		2E42219522A0F50B0017EA84 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E42219722A0F50B0017EA84 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E68BD0022952BD4003F4049 /* UsersListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListCell.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				2E3FFBAA22C2E04000B6D0A0 /* UserCellViewModelTests.swift */,
 				2E3FFBAC22C2E0DA00B6D0A0 /* UserProfileViewModelTests.swift */,
 				2E702B5B2287999800B04D20 /* Info.plist */,
+				2E3FFBAE22C2EA9D00B6D0A0 /* UsersListVCTests.swift */,
 			);
 			path = SwapcardChallengeTests;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				2E3FFBAD22C2E0DA00B6D0A0 /* UserProfileViewModelTests.swift in Sources */,
 				2E702B5A2287999800B04D20 /* SwapcardChallengeTests.swift in Sources */,
 				2E3FFBAB22C2E04000B6D0A0 /* UserCellViewModelTests.swift in Sources */,
+				2E3FFBAF22C2EA9D00B6D0A0 /* UsersListVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,6 +97,16 @@ class UsersListVC: UIViewController {
         let pictures = defRealm.objects(Picture.self)
         let userModel = self.models[index]
         
+        guard let uuid = userModel.login?.uuid else {
+            print("Error guard username")
+            return
+        }
+        view?.isHidden = true
+        if (!userExists(username: username)) {
+            self.addFriendToLocalDB(userModel: userModel)
+        } else {
+            print ("user already exists")
+        }
         let pictureId = (pictures.last != nil) ? pictures.last!.id + 1 : 0
         friend.fromModel(model: userModel, pictureId: pictureId)
         do {

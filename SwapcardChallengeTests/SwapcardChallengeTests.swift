@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Realm
 @testable import SwapcardChallenge
 
 class SwapcardChallengeTests: XCTestCase {
@@ -45,6 +46,24 @@ class SwapcardChallengeTests: XCTestCase {
     /*
      * Test adding in db local
      */
-    
+   /* func testAddFriend() {
+        let vc = UsersListVC()
+        let name = NameModel(title: "mrs", first: "jose", last: "duran")
+        let pictureModel = PictureModel(large: "https://randomuser.me/api/portraits/women/42.jpg", medium: "https://randomuser.me/api/portraits/med/women/42.jpg", thumbail: "https://randomuser.me/api/portraits/thumb/women/42.jpg")
+        let login = Login(uuid: "73704d2a-abdf-45da-ac9d-ba2e6076c416", username: "ticklishpeacock712")
+        let timezone = TimezoneModel(offset: "-11:00", description: "Midway Island, Samoa")
+        let birthday = BirthdayModel(date: "1952-01-22T11:30:00Z", age: 67)
+        let location = LocationModel(street: "2711 calle mota", city: "burgos", state: "galicia", timezone: timezone)
+        let userModel = UserModel(gender: "female", name: name, email: "jose.duran@example.com", phone: "654-656-441", picture: pictureModel, login: login, location: location, dob: birthday)
+        let friend = Friend()
+        friend.fromModel(model: userModel, pictureId: 10)
+        
+        vc.addFriendToLocalDB(userModel: userModel)
+        let models = defRealm.objects(Friend.self)
+        let predicate = NSPredicate(format: "uuid = %@", userModel.login?.uuid ?? "")
+        let model = defRealm.objects(Friend.self).filter(predicate).first
+        XCTAssertEqual(model, friend)
+        
+    }*/
     
 }
